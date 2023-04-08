@@ -21,13 +21,11 @@ public class Television implements Comparable<Television> {
             this.fourK = true;
         else
             this.fourK = false;
-
     }
 
     public Television(final String make, final String model, final boolean smart, final int screenSize, final int resolution){
         if (model == null || make == null || model.isEmpty() || make.isEmpty() || screenSize < 32 || resolution < 720)
             throw new IllegalArgumentException("Invalid parameter in constructor");
-
 
         this.model = model;
         this.smart = smart;
@@ -81,8 +79,10 @@ public class Television implements Comparable<Television> {
     public int compareTo(final Television another){
         if (another == null)
             throw new IllegalArgumentException("null parameter in the compareTo method");
+
         int makeCmp = this.make.compareTo(another.getMake());
         int modelCmp = this.model.compareTo(another.getModel());
+
         if (makeCmp != 0)
             return this.make.compareTo(another.getMake());
         else if (modelCmp != 0)
