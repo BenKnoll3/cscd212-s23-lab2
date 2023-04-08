@@ -24,18 +24,7 @@ public class Television implements Comparable<Television> {
     }
 
     public Television(final String make, final String model, final boolean smart, final int screenSize, final int resolution){
-        if (model == null || make == null || model.isEmpty() || make.isEmpty() || screenSize < 32 || resolution < 720)
-            throw new IllegalArgumentException("Invalid parameter in constructor");
-
-        this.model = model;
-        this.smart = smart;
-        this.screenSize = screenSize;
-        this.make = make;
-        this.resolution = resolution;
-        if (this.resolution == 2160)
-            this.fourK = true;
-        else
-            this.fourK = false;
+        this(model,smart,screenSize,resolution,make);
     }
 
     @Override
